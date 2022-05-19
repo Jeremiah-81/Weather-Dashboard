@@ -84,7 +84,10 @@ function currentDay(dayNum) {
     
 
 navigator.geolocation.getCurrentPosition(gotPosition);
-//---------------------------------comments go below------------------------------------------------------------------
+
+
+// <!------------------------ test theroys and comments below ----------------------->
+
 
 // function parseWeather(weatherInfo) {
 //   console.log(getcurrentDay);
@@ -95,9 +98,6 @@ navigator.geolocation.getCurrentPosition(gotPosition);
 //   donument.getElementById("dashboard").innerHTML += weather;
 //   console.log(weatherupdate);
 // }
-
-
-
 
 
 // http://api.openweathermap.org/geo/1.0/one?q=${cityname}&limit=5&appid=${apikey}`)
@@ -138,3 +138,24 @@ navigator.geolocation.getCurrentPosition(gotPosition);
 //
 // var apikey0 ="http://api.openweathermap.org/geo/1.0/direct?q=us&limit=5&appid=e87a97ca903d56450897392ad74ec9be";
 // var apikey1 ="https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=5fb649be0c2c63eec5daed5a49f52baf";
+
+
+// var apikey = "e87a97ca903d56450897392ad74ec9be"; geo local
+
+
+// function kToF(kelvinTemp) {
+//   var celsius = kelvinTemp - 273;
+//   var fahrenheit = Math.floor(celsius * (9 / 5) + 32);
+//   return fahrenheit;
+// }
+
+//  function showWeather () {
+//  var weather = https://openweathermap.org/api/one-call-api#data
+//  console.log(weekDay, description, icon, sunrise, sunset, highTemps, lowTemps, humidity, windSpeed, windGust)
+//  Math.round(windSpeed)
+//  Math.round(windGust) 
+//  document.getElementById("").innerHTML += weather
+//   return;
+// }
+// showWeather()
+  
