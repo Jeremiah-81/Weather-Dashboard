@@ -86,6 +86,8 @@ function currentDay(dayNum) {
 navigator.geolocation.getCurrentPosition(gotPosition);
 
 
+
+
 // <!------------------------ test theroys and comments below ----------------------->
 
 

@@ -21,11 +21,9 @@ body {
     margin-bottom: 8px;
  }
  
-
 .weatherToday img {
     float: right;
 }
-
 
 .weatherToday h2,
 .weatherToday h3 {
@@ -34,7 +32,7 @@ body {
 }
 
 
-
+/*-------------------------comments below-------------------------/*
 
 /* 
 {
