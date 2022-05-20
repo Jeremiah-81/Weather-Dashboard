@@ -5,7 +5,7 @@ function gotPosition(pos) {
 }
 
 function getWeather(lon, lat) {
-  var url ="http://api.openweathermap.org/geo/1.0/direct?q=lon=" +lon +"&lat=" + lat + "${cityname}&limit=5&appid=${apikey}";
+  var url =`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apikey}`;
   getWeatherText(url);
 }
 

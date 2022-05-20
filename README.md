@@ -8,7 +8,7 @@ I created this to keep up with my family's weather condition due to the wide ran
 
 ## Screenshots
 
-C:\Users\terra\code\homework\weather-dashboard\assets\06-server-side-apis-homework-demo.png
+https://raw.githubusercontent.com/Jeremiah-81/Weather-Dashboard/main/06-server-side-apis-homework-demo.png
 
 ## Tech/Framework
 
@@ -20,7 +20,7 @@ Very simple to use, just enter the location you wish in the search bar to genera
 
 ## Features
 
-This will tell you a weeks worth of weather in advanced on any desired location.
+This will tell you the weather for the next seven days of any desired location.
 
 ### Credits
 https://www.w3schools.com/js/js_functions.asp
