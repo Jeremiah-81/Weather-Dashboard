@@ -8,7 +8,7 @@ I created this to keep up with my family's weather condition due to the wide ran
 
 ## Screenshots
 
-https://raw.githubusercontent.com/Jeremiah-81/Weather-Dashboard/main/06-server-side-apis-homework-demo.png
+https://raw.githubusercontent.com/Jeremiah-81/Weather-Dashboard/main/assets/06-server-side-apis-homework-demo.png
 
 ## Tech/Framework
 
