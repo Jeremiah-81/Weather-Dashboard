@@ -23,5 +23,6 @@ Very simple to use, just enter the location you wish in the search bar to genera
 This will tell you the weather for the next seven days of any desired location.
 
 ### Credits
+
 https://www.w3schools.com/js/js_functions.asp
 https://www.w3schools.com/howto/howto_css_searchbar.asp
