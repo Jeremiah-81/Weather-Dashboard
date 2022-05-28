@@ -1,19 +1,64 @@
 body {
-    font-family: 'orelega one', serif;
+    display: flex;
     justify-content: center;
-}
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: #0b7dda;}
+  
+  .card {background: #eaeaea;
+    padding: 2em;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 400px;
+    margin: 1em;}
 
-*.weatherToday {
-    border: 3px solid black;
-    /* the space between boxes */
-    margin-bottom: 25;
-    /* radius will make the corners round*/
-    border-radius: 10;
-    /* the space between the box edge and end of the contense */
-    padding: 10;
-    /* the background color inside each box */
-    background-color: cornflowerblue;
-} 
+/* 
+* {
+    box-sizing: border-box;
+  }
+  
+  form.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+  }
+  
+  form.example button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+  }
+  
+  form.example button:hover {
+    background: #0b7dda;
+  }
+  form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+  } */
+
+/* *.weatherToday { */
+/* border: 3px solid black; */
+/* the space between boxes */
+/* margin-bottom: 25; */
+/* radius will make the corners round*/
+/* border-radius: 10; */
+/* the space between the box edge and end of the contense */
+/* padding: 10;} */
+/* the background color inside each box */
+/* background-color: cornflowerblue;
+ }
 
 .weatherToday p {
     float: left;
@@ -29,8 +74,7 @@ body {
 .weatherToday h3 {
    margin-top: 10px;
    margin-bottom: 5px;
-}
-
+} */
 
 /*-------------------------comments below-------------------------/*
 
