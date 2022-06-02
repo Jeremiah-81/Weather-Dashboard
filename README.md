@@ -26,3 +26,22 @@ This will tell you the weather for the next seven days of any desired location.
 
 https://www.w3schools.com/js/js_functions.asp
 https://www.w3schools.com/howto/howto_css_searchbar.asp
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: #0b7dda;}
+  
+  .card {
+    background: #eaeaea;
+    padding: 2em;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 400px;
+    margin: 1em;}
+
+ 
