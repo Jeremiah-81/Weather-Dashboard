@@ -1,3 +1,11 @@
+var searchInput = document.querySelector("#search-input");
+var searchButton = document.querySelector("#search-button");
+var confirmLocationModal = document.querySelector("#confirm-location-modal");
+var searchHistoryItems = document.querySelector("#search-history-items");
+var currentWeatherCity = document.querySelector("#current-weather-city");
+var currentWeatherData = document.querySelector("#current-weather");
+var forecastElement = document.querySelector("#forecast");
+
 function gotPosition(pos) {
   var lon = pos.coords.longitude;
   var lat = pos.coords.latitude;
@@ -23,6 +31,9 @@ function parseWeather(weatherText) {
   var dailyForecast = weatherJSON.daily;
   for (i = 0; i < dailyForecast.length; i++) {
     var day = dailyForecast[i];
+    if (day = day) {
+      today = day; 
+    }
     var today = new Date().getDay() + i;
     if (today > 6) {
       today = today - 7;
@@ -31,7 +42,7 @@ function parseWeather(weatherText) {
 }
 
 var apikey = "e87a97ca903d56450897392ad74ec9be";
-var cityname = "Scottsdale";
+var cityname = "Nome";
 fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityname}&limit=5&appid=${apikey}`)
   .then(function (response) {
     // Check the console to see the status
