@@ -69,7 +69,7 @@ userSearch.addEventListener("click", buttonEvent);
 // document.getElementById("day"+(i+1)).innerHTML = currentDay[weatherStatus(i)];
 // }
 
-///////////////////////////////////6/16/22/The end of my most recent changes.///6/16/22///////////////////////////////////////
+///////////////////////////////////6/16/22/The end of my most recent changes.///6/16/22//////////////////////////////////////
 
 function getWeather(lon, lat) {
   var url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apikey}`;
