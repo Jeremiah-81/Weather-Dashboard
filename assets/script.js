@@ -8,7 +8,7 @@ var currentWeatherData = document.querySelector("#current-weather");
 var forecastElement = document.querySelector("#forecast");
 var userSearch = document.querySelector("#userSearch")
 var userHistory = document.querySelector("#userHistory")
-var clearSearchButton = document.querySelector("#innerHTML")
+var clearSearchButton = document.querySelector("#wipe-data")
 function gotPosition(pos) {
   var lon = pos.coords.longitude;
   var lat = pos.coords.latitude;
@@ -100,6 +100,9 @@ function parseWeather(weatherText) {
 }
 function buttonEvent(){
 var cityname = document.querySelector("#cityInput").value;
+var temp = JSON.parse(localStorage.getItem("cities")) || [];
+temp.push(cityname);
+JSON.stringify(localStorage.setItem("cities", temp));
 console.log(cityname)
 fetch(
   `http://api.openweathermap.org/geo/1.0/direct?q=${cityname}&limit=5&appid=${apikey}`
@@ -142,24 +145,24 @@ function displayForecast(weatherStatus) {
 
 
 //////////////This is where the search history is located.////////////////////
-  userSearch.addEventListener("click",function() {
-  const searchTerm = inputButton.value;
-  getWeather(searchTerm);
-  userHistory.push(searchTerm);
-  localStorage.setItem("user",JSON.stringify(userHistory));
-  renderUserHistory();
-})
+//   userSearch.addEventListener("click",function() {
+//   const searchTerm = inputButton.value;
+//   getWeather(searchTerm);
+//   userHistory.push(searchTerm);
+//   localStorage.setItem("user",JSON.stringify(userHistory));
+//   renderUserHistory();
+// })
 
-  userSearch.addEventListener("click",function() {
-  userHistory = [];
-  renderUserHistory();
-})
+//   userSearch.addEventListener("click",function() {
+//   userHistory = [];
+//   renderUserHistory();
+// })
 
 
-userSearch.addEventListener("click",function() {
-  userHistory = [];
-  renderUserHistory();
-})
+// userSearch.addEventListener("click",function() {
+//   userHistory = [];
+//   renderUserHistory();
+// })
 
 
 function k2f(K) {
@@ -168,12 +171,14 @@ function k2f(K) {
 
 function renderSearchHistory() {
   clearSearchButton.innerHTML = "";
-  for (let i=0; i<searchHistory.length; i++) {
+  var temp = JSON.parse(localStorage.getItem("cities")) || [];
+  for (let i=0; i<temp.length; i++) {
+
       const historyItem = document.createElement("input");
-      historyItem.setAttribute("type","text");
+      historyItem.setAttribute("type","button");
       historyItem.setAttribute("readonly",true);
       historyItem.setAttribute("class", "form-control d-block bg-white");
-      historyItem.setAttribute("value", searchHistory[i]);
+      historyItem.setAttribute("value", userHistory[i]);
       historyItem.addEventListener("click",function() {
           getWeather(historyItem.value);
       })
@@ -181,10 +186,10 @@ function renderSearchHistory() {
   }
 }
 
-renderSearchHistory();
-if (searchHistory.length > 0) {
-  getWeather(searchHistory[searchHistory.length - 1]);
-}
+// renderSearchHistory();
+// if (searchHistory.length > 0) {
+//   getWeather(searchHistory[searchHistory.length - 1]);
+// }
 
 
 
