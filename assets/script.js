@@ -8,7 +8,7 @@ var currentWeatherData = document.querySelector("#current-weather");
 var forecastElement = document.querySelector("#forecast");
 var userSearch = document.querySelector("#userSearch")
 var userHistory = document.querySelector("#userHistory")
-var clearSearchHistory = document.querySelector("#innerHTML")
+var clearSearchButton = document.querySelector("#innerHTML")
 function gotPosition(pos) {
   var lon = pos.coords.longitude;
   var lat = pos.coords.latitude;
