@@ -7,6 +7,8 @@ var currentWeatherCity = document.querySelector("#current-weather-city");
 var currentWeatherData = document.querySelector("#current-weather");
 var forecastElement = document.querySelector("#forecast");
 var userSearch = document.querySelector("#userSearch")
+var userHistory = document.querySelector("#userHistory")
+var clearSearchHistory = document.querySelector("#innerHTML")
 function gotPosition(pos) {
   var lon = pos.coords.longitude;
   var lat = pos.coords.latitude;
@@ -69,7 +71,7 @@ userSearch.addEventListener("click", buttonEvent);
 // document.getElementById("day"+(i+1)).innerHTML = currentDay[weatherStatus(i)];
 // }
 
-///////////////////////////////////6/16/22/The end of my most recent changes.///6/16/22//////////////////////////////////////
+///////////////////////////////////6/16/22/The end of my most recent changes.///6/16/22///////////////////////////////////////
 
 function getWeather(lon, lat) {
   var url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apikey}`;
@@ -137,6 +139,58 @@ function displayForecast(weatherStatus) {
   );
   console.log(weatherStatus);
 }
+
+
+//////////////This is where the search history is located.////////////////////
+  userSearch.addEventListener("click",function() {
+  const searchTerm = inputButton.value;
+  getWeather(searchTerm);
+  userHistory.push(searchTerm);
+  localStorage.setItem("user",JSON.stringify(userHistory));
+  renderUserHistory();
+})
+
+  userSearch.addEventListener("click",function() {
+  userHistory = [];
+  renderUserHistory();
+})
+
+
+userSearch.addEventListener("click",function() {
+  userHistory = [];
+  renderUserHistory();
+})
+
+
+function k2f(K) {
+  return Math.floor((K - 273.15) *1.8 +32);
+}
+
+function renderSearchHistory() {
+  clearSearchButton.innerHTML = "";
+  for (let i=0; i<searchHistory.length; i++) {
+      const historyItem = document.createElement("input");
+      historyItem.setAttribute("type","text");
+      historyItem.setAttribute("readonly",true);
+      historyItem.setAttribute("class", "form-control d-block bg-white");
+      historyItem.setAttribute("value", searchHistory[i]);
+      historyItem.addEventListener("click",function() {
+          getWeather(historyItem.value);
+      })
+      historyButton.append(historyItem);
+  }
+}
+
+renderSearchHistory();
+if (searchHistory.length > 0) {
+  getWeather(searchHistory[searchHistory.length - 1]);
+}
+
+
+
+
+
+
 
 function currentDay(dayNum) {
   var weekday = Array(7);
@@ -232,3 +286,51 @@ navigator.geolocation.getCurrentPosition(gotPosition);
 //   return;
 // }
 // showWeather()
+
+
+
+
+
+
+
+
+
+
+// ///////////This is where the search history is located.////////////////////
+// searchButton.addEventListener("click",function() {
+//   const searchTerm = inputButton.value;
+//   getWeather(searchTerm);
+//   userHistory.push(searchTerm);
+//   localStorage.setItem("user",JSON.stringify(userHistory));
+//   renderUserHistory();
+// })
+
+// clearButton.addEventListener("click",function() {
+//   userHistory = [];
+//   renderUserHistory();
+// })
+
+
+// function k2f(K) {
+//   return Math.floor((K - 273.15) *1.8 +32);
+// }
+
+// function renderSearchHistory() {
+//   historyButton.innerHTML = "";
+//   for (let i=0; i<searchHistory.length; i++) {
+//       const historyItem = document.createElement("input");
+//       historyItem.setAttribute("type","text");
+//       historyItem.setAttribute("readonly",true);
+//       historyItem.setAttribute("class", "form-control d-block bg-white");
+//       historyItem.setAttribute("value", searchHistory[i]);
+//       historyItem.addEventListener("click",function() {
+//           getWeather(historyItem.value);
+//       })
+//       historyButton.append(historyItem);
+//   }
+// }
+
+// renderSearchHistory();
+// if (searchHistory.length > 0) {
+//   getWeather(searchHistory[searchHistory.length - 1]);
+// }
