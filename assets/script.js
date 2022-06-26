@@ -74,7 +74,7 @@ userSearch.addEventListener("click", buttonEvent);
 ///////////////////////////////////6/16/22/The end of my most recent changes.///6/16/22///////////////////////////////////////
 
 function getWeather(lon, lat) {
-  var url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apikey}`;
+  var url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apikey}&units=imperial`;
   getWeatherText(url);
 }
 async function getWeatherText(url) {
@@ -87,22 +87,25 @@ function parseWeather(weatherText) {
   var weatherJSON = JSON.parse(weatherText);
   console.log(weatherJSON);
   var dailyForecast = weatherJSON.daily;
-  for (i = 0; i < dailyForecast.length; i++) {
-    var day = dailyForecast[i];
-    if ((day = day)) {
-      today = day;
-    }
-    var today = new Date().getDay() + i;
-    if (today > 6) {
-      today = today - 7;
-    }
-  }
+  document.getElementById("currentTemp").textContent = weatherJSON.current.temp
+  document.getElementById("currentHumidity").textContent = weatherJSON.current.humidity
+  // for (i = 0; i < dailyForecast.length; i++) {
+  //   var day = dailyForecast[i];
+  //   if ((day = day)) {
+  //     today = day;
+  //   }
+  //   var today = new Date().getDay() + i;
+  //   if (today > 6) {
+  //     today = today - 7;
+  //   }
+  // }
 }
 function buttonEvent(){
 var cityname = document.querySelector("#cityInput").value;
+///////////////////////////////// This adds the city's serched to local Storage.///////////////////////////////////////
 var temp = JSON.parse(localStorage.getItem("cities")) || [];
 temp.push(cityname);
-JSON.stringify(localStorage.setItem("cities", temp));
+localStorage.setItem("cities", JSON.stringify(temp));
 console.log(cityname)
 fetch(
   `http://api.openweathermap.org/geo/1.0/direct?q=${cityname}&limit=5&appid=${apikey}`
@@ -115,6 +118,7 @@ fetch(
     console.log(data);
     console.log(data[0]);
     console.log(data[0].lon);
+    getWeather(data[0].lon, data[0].lat)
   });
 }
 function displayForecast(weatherStatus) {
@@ -221,7 +225,7 @@ function realTime(timeStamp) {
   return hours + ":" + minutes;
 }
 
-navigator.geolocation.getCurrentPosition(gotPosition);
+// navigator.geolocation.getCurrentPosition(gotPosition);
 
 // <!------------------------ test theroys and comments below ----------------------->
 
