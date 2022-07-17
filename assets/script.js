@@ -17,62 +17,6 @@ function gotPosition(pos) {
 userSearch.addEventListener("click", buttonEvent);
 
 
-
-///////////6/16/22////////////////Started adding some changes here to try out what would work for me.///6/16/22///////////////////
-// function showWeather(){
-//   var newName= document.getElementById("cityInput");
-//   var cityName= document.getElementById("cityName");
-//   cityName.innerHTML ="--"+newName.value+"--"
-// }
-
-// fetch("https://api.openweathermap.org/geo/1.0/direct?q=lat=${lat}&lon=${lon}&appid=e87a97ca903d56450897392ad74ec9be")
-// fetch("https://api.openweathermap.org/data/2.5/forecast?q='+newName.value+'&appid=e87a97ca903d56450897392ad74ec9be")
-// .then(responce => responce.json())
-// .then(data =>{
-//    for(i=0;i<5;i++){
-//      document.getElementById("day" +(i+1)+ "Min").innerHTML ="Min:" +Number(data.list[i].main.temp_min -123.45).toFixed(1)+"°";
-//     }
-//     for(i=0;i<5;i++){
-//       document.getElementById("day" +(i+1)+ "Max").innerHTML ="Max:" +Number(data.list[i].main.temp_max -123.45).toFixed(1)+"°";
-//     }
-//     for(i=0;i<5;i++){
-//       document.getElementById("day" +(i+1)+ "Max").innerHTML ="Max:" +Number(data.list[i].main.temp_max -123.45).toFixed(1)+"°";
-//     }
-//     for(i=0;i<5;i++){
-////////////////////This is where ihe weather icons go for what each day.//////////////////////////////////////////
-//       document.getElementById("img" +(1+i)).scr =" http://openweathermap.org/img/wn/" + data.list[i].weather[0].icon+".png";
-//     }
-// })
-
-// .catch(err => alert("There is an Error"))
-
-// function currentDay(dayNum) {
-//   var weekday = Array(7);
-//   weekday[0] = "Sunday";
-//   weekday[1] = "Monday";
-//   weekday[2] = "Tuesday";
-//   weekday[3] = "Wednesday";
-//   weekday[4] = "Thurday";
-//   weekday[5] = "Friday";
-//   weekday[6] = "Saterday";
-//   return weekday[dayNum];
-// }
-
-// function weatherStatus(status){
-//   if(status +currentDay.getStatus() >+6){
-//     return status +currentDay.getStatus()-7;
-//   }
-//   else{
-//     return status +currentDay.getStatus();
-//   }
-// }
-
-// for(i=0;i<5;i++){
-// document.getElementById("day"+(i+1)).innerHTML = currentDay[weatherStatus(i)];
-// }
-
-///////////////////////////////////6/16/22/The end of my most recent changes.///6/16/22///////////////////////////////////////
-
 function getWeather(lon, lat) {
   var url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apikey}&units=imperial`;
   getWeatherText(url);
@@ -89,16 +33,9 @@ function parseWeather(weatherText) {
   var dailyForecast = weatherJSON.daily;
   document.getElementById("currentTemp").textContent = weatherJSON.current.temp
   document.getElementById("currentHumidity").textContent = weatherJSON.current.humidity
-  // for (i = 0; i < dailyForecast.length; i++) {
-  //   var day = dailyForecast[i];
-  //   if ((day = day)) {
-  //     today = day;
-  //   }
-  //   var today = new Date().getDay() + i;
-  //   if (today > 6) {
-  //     today = today - 7;
-  //   }
-  // }
+  document.getElementById("currentwindSpeed").textContent = weatherJSON.current.windSpeed
+  document.getElementById("currentUVIndex").textContent = weatherJSON.current.UVindex
+  
 }
 function buttonEvent(){
 var cityname = document.querySelector("#cityInput").value;
@@ -147,28 +84,6 @@ function displayForecast(weatherStatus) {
   console.log(weatherStatus);
 }
 
-
-//////////////This is where the search history is located.////////////////////
-//   userSearch.addEventListener("click",function() {
-//   const searchTerm = inputButton.value;
-//   getWeather(searchTerm);
-//   userHistory.push(searchTerm);
-//   localStorage.setItem("user",JSON.stringify(userHistory));
-//   renderUserHistory();
-// })
-
-//   userSearch.addEventListener("click",function() {
-//   userHistory = [];
-//   renderUserHistory();
-// })
-
-
-// userSearch.addEventListener("click",function() {
-//   userHistory = [];
-//   renderUserHistory();
-// })
-
-
 function k2f(K) {
   return Math.floor((K - 273.15) *1.8 +32);
 }
@@ -189,17 +104,6 @@ function renderSearchHistory() {
       historyButton.append(historyItem);
   }
 }
-
-// renderSearchHistory();
-// if (searchHistory.length > 0) {
-//   getWeather(searchHistory[searchHistory.length - 1]);
-// }
-
-
-
-
-
-
 
 function currentDay(dayNum) {
   var weekday = Array(7);
@@ -224,122 +128,3 @@ function realTime(timeStamp) {
   }
   return hours + ":" + minutes;
 }
-
-// navigator.geolocation.getCurrentPosition(gotPosition);
-
-// <!------------------------ test theroys and comments below ----------------------->
-
-// function parseWeather(weatherInfo) {
-//   console.log(getcurrentDay);
-
-// function displayWeatherDay(weatherupdate) {
-//
-//   var windSpeed = Math.round(windSpeed);
-//   donument.getElementById("dashboard").innerHTML += weather;
-//   console.log(weatherupdate);
-// }
-
-// http://api.openweathermap.org/geo/1.0/one?q=${cityname}&limit=5&appid=${apikey}`)
-
-// fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityname}&limit=5&appid=${apikey}`)
-//   .then(function (response)
-
-// https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=e87a97ca903d56450897392ad74ec9be
-
-//e87a97ca903d56450897392ad74ec9be
-
-// async function getWeatherText(apikey1) {
-// var weatherCondition = await fetch(apikey1);
-
-// var geocodingapi = "e87a97ca903d56450897392ad74ec9be"
-// var weatherdataapi = "5fb649be0c2c63eec5daed5a49f52baf"
-
-// navigator.geolocation.getCurrentPosition(gotPosition);
-// for (var i = 0; i < localStorage.length; i++) {
-
-// 	var state = localStorage.getItem(i);
-// 	// console.log(localStorage.getItem("state"));
-// 	var stateName = $(".list-group").addClass("list-group-item");
-
-// 	stateName.append("<li>" + state + "</li>");
-
-// 		var city = localStorage.getItem(i);
-// 		// console.log(localStorage.getItem("City"));
-// 		var cityName = $(".list-group").addClass("list-group-item");
-
-// 		cityName.append("<li>" + city + "</li>");
-// 	}
-// 	// Key count for local storage
-// 	var currentweather = 0;
-// 	// Search button click event
-// 	searchButton.click(function () {
-
-//
-// var apikey0 ="http://api.openweathermap.org/geo/1.0/direct?q=us&limit=5&appid=e87a97ca903d56450897392ad74ec9be";
-// var apikey1 ="https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=5fb649be0c2c63eec5daed5a49f52baf";
-
-// var apikey = "e87a97ca903d56450897392ad74ec9be"; geo local
-
-// function kToF(kelvinTemp) {
-//   var celsius = kelvinTemp - 273;
-//   var fahrenheit = Math.floor(celsius * (9 / 5) + 32);
-//   return fahrenheit;
-// }
-
-//  function showWeather () {
-//  var weather = https://openweathermap.org/api/one-call-api#data
-//  console.log(weekDay, description, icon, sunrise, sunset, highTemps, lowTemps, humidity, windSpeed, windGust)
-//  Math.round(windSpeed)
-//  Math.round(windGust)
-//  document.getElementById("").innerHTML += weather
-//   return;
-// }
-// showWeather()
-
-
-
-
-
-
-
-
-
-
-// ///////////This is where the search history is located.////////////////////
-// searchButton.addEventListener("click",function() {
-//   const searchTerm = inputButton.value;
-//   getWeather(searchTerm);
-//   userHistory.push(searchTerm);
-//   localStorage.setItem("user",JSON.stringify(userHistory));
-//   renderUserHistory();
-// })
-
-// clearButton.addEventListener("click",function() {
-//   userHistory = [];
-//   renderUserHistory();
-// })
-
-
-// function k2f(K) {
-//   return Math.floor((K - 273.15) *1.8 +32);
-// }
-
-// function renderSearchHistory() {
-//   historyButton.innerHTML = "";
-//   for (let i=0; i<searchHistory.length; i++) {
-//       const historyItem = document.createElement("input");
-//       historyItem.setAttribute("type","text");
-//       historyItem.setAttribute("readonly",true);
-//       historyItem.setAttribute("class", "form-control d-block bg-white");
-//       historyItem.setAttribute("value", searchHistory[i]);
-//       historyItem.addEventListener("click",function() {
-//           getWeather(historyItem.value);
-//       })
-//       historyButton.append(historyItem);
-//   }
-// }
-
-// renderSearchHistory();
-// if (searchHistory.length > 0) {
-//   getWeather(searchHistory[searchHistory.length - 1]);
-// }
